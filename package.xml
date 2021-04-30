@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package>
+  <name>drone_move</name>
+  <version>0.1.0</version>
+  <description>drone move code</description>
+  <maintainer email="df@kaist.ac.kr">Inhwan Wee</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://www.url.kaist.co.kr/</url>
+  <author email="dfdf@kaist.ac.kr">Jeewon</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>tf</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>rospy</run_depend>
+
+  <export>
+  </export>
+</package>
+
