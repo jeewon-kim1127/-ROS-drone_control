@@ -124,7 +124,7 @@ int main(int argc, char **argv)
 
     double goal_vx = 0;
     double goal_vy = 0;
-    double goal_vz = 0.5;
+    double goal_vz = 1;
 
     int step = 0;
 
@@ -157,33 +157,33 @@ int main(int argc, char **argv)
 
          //printf("position, goal:(%f,%f,%f), cur:(%f,%f,%f) \n", goal_x, goal_y, goal_z, real_x, real_y, real_z);
          //printf("vel, goal:(%f %f %f) real:(%f %f %f)  \n", goal_vx, goal_vy, goal_vz,real_vx, real_vy, real_vz);
-          if( abs(real_x-goal_x) < 0.5 && abs(real_y-goal_y)< 0.5 && abs(real_z-goal_z)<0.5 ){
-             goal_vz=0; goal_z=5;
-                printf("step%d \n", step);
+         if( abs(real_x-goal_x) < 0.5 && abs(real_y-goal_y)< 0.5 && abs(real_z-goal_z)<0.5 ){
+            goal_vz=1; goal_z=5;
+            printf("step%d \n", step);
 
-                  if ( step %4 == 0 ){
-                    goal_x = orig_x+5;
-                    goal_y = orig_y;
-                  }
-                  else if ( step %4 == 1 ){
-                    goal_x = orig_x + 5;
-                    goal_y = orig_y + 5;
-                  }
-                  else if( step %4 == 2 ){
-                    goal_x = orig_x;
-                    goal_y = orig_y + 5;
-                  }
-                  else if ( step %4 == 3 ){
-                    goal_x = orig_x;
-                    goal_y = orig_y;
-                  }
-                  step++;
-            }
+            if ( step %4 == 0 ){
+               goal_x = orig_x+5;
+               goal_y = orig_y;
+             }
+             else if ( step %4 == 1 ){
+               goal_x = orig_x + 5;
+               goal_y = orig_y + 5;
+             }
+             else if( step %4 == 2 ){
+               goal_x = orig_x;
+               goal_y = orig_y + 5;
+             }
+             else if ( step %4 == 3 ){
+               goal_x = orig_x;
+               goal_y = orig_y;
+             }
+             step++;
+        }
             
         else{
-            goal_vx = 0.5*(goal_x-real_x);
-            goal_vy = 0.5*(goal_y-real_y);
-            goal_vz = 0.5*(goal_z-real_z);
+            goal_vx = 0.2*(goal_vx-real_vx)+0.4*(goal_x-real_x);
+            goal_vy = 0.2*(goal_vy-real_vy)+0.4*(goal_y-real_y);
+            goal_vz = 0.2*(goal_vz-real_vz)+0.4*(goal_z-real_z);
 
             vel.twist.linear.x = goal_vx;
             vel.twist.linear.y = goal_vy;
