@@ -1,4 +1,4 @@
-//move in 10*10 square with velocity PD control using mavros
+//move in 5*5 square with velocity PI control using mavros
 //coded by jeewon kim https://github.com/jeewon-kim1127
 
 #include <ros/ros.h>
